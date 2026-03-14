@@ -197,7 +197,7 @@ const projectData = {
     fraud: {
         title: 'Real-Time Fraud Detection System',
         tag: 'Speed & Reliability',
-        icon: '⚡',
+        icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`,
         situation: 'Designed and deployed a low-latency fraud detection API to process 10,000+ transactions per second with a sub-150ms P95 latency requirement, necessitating zero-downtime updates.',
         actions: [
             {
@@ -231,7 +231,7 @@ const projectData = {
     recommendation: {
         title: 'Scalable Recommendation Engine',
         tag: 'Distributed Scale',
-        icon: '🔄',
+        icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path></svg>`,
         situation: 'Built a personalized news recommendation system requiring training on a 100GB+ dataset and serving with autoscaling to handle variable user load.',
         actions: [
             {
@@ -265,7 +265,7 @@ const projectData = {
     llm: {
         title: 'Enterprise LLM & RAG Platform',
         tag: 'GenAI System',
-        icon: '🤖',
+        icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
         situation: 'Developed a Retrieval-Augmented Generation (RAG) system to ground an LLM on a private corpus of engineering documents (500k+ PDFs), improving answer accuracy and reducing hallucinations.',
         actions: [
             {
@@ -299,7 +299,7 @@ const projectData = {
     vision: {
         title: 'Computer Vision for Edge Deployment',
         tag: 'Optimization',
-        icon: '👁️',
+        icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
         situation: 'Optimized a YOLOv8 object detection model for high-FPS inference on constrained hardware (simulated edge environment), targeting a 50% reduction in model size and 3x speedup.',
         actions: [
             {
@@ -485,7 +485,7 @@ progressBar.style.cssText = `
     top: 0;
     left: 0;
     height: 3px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--primary-gradient);
     z-index: 9999;
     transition: width 0.1s ease;
 `;
@@ -1316,7 +1316,7 @@ class PipelineArchitect {
 
         // Variable Flow: Speed up post-training model delivery
         let duration = this.config.baseSpeed;
-        if (toNode === 'node-registry' || toNode === 'node-deploy') duration *= 0.6;
+        if (toNode === 'hero-node-registry' || toNode === 'hero-node-deploy') duration *= 0.6;
 
         const anim = packet.animate([
             { offsetDistance: '0%', opacity: 1 },
@@ -1342,8 +1342,87 @@ class PipelineArchitect {
     }
 }
 
-// Global Initialization
+// ===================================
+// ABOUT DETAIL MODAL
+// ===================================
 document.addEventListener('DOMContentLoaded', () => {
-    new HoloSkills();
-    new PipelineArchitect();
+    const aboutDetailBtn = document.getElementById('show-about-details');
+    if (aboutDetailBtn) {
+        aboutDetailBtn.addEventListener('click', () => {
+            if (modal && modalBody) {
+                modalBody.innerHTML = `
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <span class="project-tag">System.Profile.v4</span>
+                    </div>
+                    <h2 class="modal-title">Rubaiyat Emon // Technical Profile</h2>
+                    
+                    <div class="modal-bento-grid">
+                        <div class="modal-card modal-header-card">
+                            <span class="card-label">Core Directives</span>
+                            <div class="card-scroll-area">
+                                <p class="card-text">
+                                    Engineer with a "Failure-First" philosophy. specializing in bridge building between 
+                                    high-level ML logic and low-level production stability.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-card modal-action-card" data-index="01">
+                            <span class="card-label">Education Vector</span>
+                            <h4 class="card-subtitle">Mechanical Engineering Background</h4>
+                            <div class="card-scroll-area">
+                                <p class="card-text">
+                                    B.Sc. in ME. Provided the rigour for finite element analysis and complex systems 
+                                    which now translates to robust ML architecture and high-precision code.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-card modal-results-card">
+                            <span class="card-label">System Runtime</span>
+                            <div class="stat-list">
+                                <div class="stat-item">
+                                    <span>Coffee-to-Code:</span>
+                                    <strong>98.4%</strong>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Bugs Crushed:</span>
+                                    <strong>4,200+</strong>
+                                </div>
+                                <div class="stat-item">
+                                    <span>Uptime Target:</span>
+                                    <strong>99.99%</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-card modal-reflection-card">
+                            <span class="card-label">Design Philosophy</span>
+                            <div class="card-scroll-area">
+                                <p class="card-text">
+                                    "If it isn't monitored, it isn't in production." An obsessive focus on observability, 
+                                    automated recovery, and data integrity across the entire ML lifecycle.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                console.error('Modal or ModalBody not found', { modal, modalBody });
+            }
+        });
+    } else {
+        console.warn('About Detail Button (#show-about-details) not found in DOM');
+    }
+});
+
+// Global Initialization for other components
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof HoloSkills !== 'undefined') new HoloSkills();
+    if (typeof PipelineArchitect !== 'undefined') new PipelineArchitect();
 });
